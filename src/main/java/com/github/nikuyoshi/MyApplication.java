@@ -1,7 +1,15 @@
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+package com.github.nikuyoshi;
+
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
+import org.glassfish.jersey.server.ResourceConfig;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
 
 /**
  * Copyright 2016 Hiroki Uchida
@@ -18,11 +26,10 @@ import javax.ws.rs.core.MediaType;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-@Path("myresource")
-public class MyResource {
-    @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    public String getIt(){
-        return "Got it";
+@ApplicationPath("app")
+public class MyApplication extends ResourceConfig{
+    public MyApplication(){
+        packages("com.github.nikuyoshi");
+        register(com.github.nikuyoshi.MyResource.class);
     }
 }
