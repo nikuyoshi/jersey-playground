@@ -1,0 +1,15 @@
+{
+  "name": "jersey-playground",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
